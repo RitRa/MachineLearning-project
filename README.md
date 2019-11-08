@@ -106,7 +106,7 @@ summary.head(14)
 
 *add the linear regression plots here*
 ![MEDV and LSTAT](plots/medvandlstatrelationship.png)
-![MEDV and RM](plots/medvvrmrelationship.png.png)
+![MEDV and RM](plots/medvvrmrelationship.png)
 
 ### Inferential statistics
 
