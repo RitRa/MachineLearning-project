@@ -10,7 +10,7 @@ I recommend nbviewer for viewing this file:
 https://nbviewer.jupyter.org/github/RitRa/MachineLearning-project/blob/master/Project.ipynb
 
 
-This Project concerns Boston House Prices dataset and the Python packages scipy, keras, and jupyter.
+This Project concerns Boston House Prices dataset and the Python packages [scipy](https://www.scipy.org/), [keras](https://keras.io/), and [jupyter](https://jupyter.org/).
 
 I recommend installing jupyter using the anaconda distribution to run this
 link to documentation
@@ -31,15 +31,17 @@ boston_df = load_boston()
 
 Libraries used in this notebook include:
 
-- **Pandas**: Pandas is an open source, BSD-licensed library providing high-performance, easy-to-use data structures and data analysis tools for the Python programming language. pandas
+- **Pandas**: Pandas is an open source, BSD-licensed library providing high-performance, easy-to-use data structures and data analysis tools for the Python programming language. https://pandas.pydata.org/
 
-- **NumPy**: NumPy is the fundamental package for scientific computing with Python. NumPy
+- **NumPy**: NumPy is the fundamental package for scientific computing with Python. https://numpy.org/
 
-- **Seaborn**: Seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics.
+- **Seaborn**: Seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics. https://seaborn.pydata.org/
 
-- **Matplotlib**: import matplotlib as plt
+- **Matplotlib**: Matplotlib is a Python 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments across platforms. https://matplotlib.org/
 
-- **statsmodels.api**: import statsmodels.api as sm
+- **statsmodels**: s a Python module that provides classes and functions for the estimation of many different statistical models, as well as for conducting statistical tests, and statistical data exploration. https://www.statsmodels.org/stable/index.html
+
+- Keras is a high-level neural networks API, written in Python and capable of running on top of TensorFlow, CNTK, or Theano.
 
 ### import libraries
 
@@ -64,7 +66,7 @@ A Quick look at the data
 
 
 ### Descriptive statistics
-# describe() gives us a quick overview of the dataset
+#### describe() gives us a quick overview of the dataset
 
 ```
 summary = boston.describe()
@@ -100,14 +102,25 @@ summary.head(14)
 
 Use inferential statistics to analyse whether there is a significant difference in median house prices between houses that are along the Charles river and those that aren’t. 
 
-Visuallise the spread of data 
+Visualise the spread of data 
 *add box plots here of river vs non river*
 
-Using a One-way Anova 
+#### Using a One-way Anova 
+
+```
+#oneway anova
+import scipy.stats as stats
+stats.f_oneway(other_df['MEDV'], riverhouse_df['MEDV'])
+```
+
+#### Z-test
 
 Using a Z-test to compare the 2 means
 
 ```
+# import the package for performing Z Test
+from statsmodels.stats.weightstats import ztest
+
 ztest(Y2,x2=None,value=Mean1)
 ```
 
