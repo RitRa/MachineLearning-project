@@ -22,9 +22,11 @@ link to documentation
 Dataset used
 
 # importing the boston housing dataset
+
+```
 from sklearn.datasets import load_boston
 boston_df = load_boston()
-
+```
 
 
 Libraries used in this notebook include:
@@ -39,16 +41,16 @@ Libraries used in this notebook include:
 
 - **statsmodels.api**: import statsmodels.api as sm
 
-#import libraries
+### import libraries
 
-
-#import libraries
+```
 import numpy as np
 import pandas as pd
 import seaborn as sns
 import matplotlib as plt
 import researchpy as rp
 import statsmodels.api as sm
+```
 
 A Quick look at the data
 
@@ -63,25 +65,29 @@ A Quick look at the data
 
 ### Descriptive statistics
 # describe() gives us a quick overview of the dataset
+
+```
 summary = boston.describe()
 summary = summary.transpose()
 summary.head(14)
+```
 
-count |	mean	|std	|min	|25%	|50%|	75%|	max
-CRIM|	506.0	|3.613524	|8.601545	|0.00632	|0.082045	|0.25651	|3.677083	|88.9762
-ZN|	506.0	|11.363636|	23.322453|	0.00000	|0.000000	|0.00000	|12.500000	|100.0000
-INDUS|	506.0|	11.136779	|6.860353	|0.46000	|5.190000|	9.69000|	18.100000	|27.7400
-CHAS|	506.0	|0.069170	|0.253994|	0.00000	|0.000000|	0.00000|	0.000000|	1.0000
-NOX	|506.0|	0.554695|	0.115878	|0.38500	|0.449000	|0.53800	|0.624000	|0.8710
-RM|	506.0	|6.284634|	0.702617	|3.56100	|5.885500	|6.20850	|6.623500	|8.7800
-AGE	|506.0|	68.574901	|28.148861	|2.90000	|45.025000	|77.50000	| 94.075000	|100.0000
-DIS	|506.0|	3.795043	|2.105710	|1.12960|	2.100175|	3.20745|	5.188425	|12.1265
-RAD|	506.0	|9.549407	|8.707259	|1.00000|	4.000000|	5.00000|	24.000000	|24.0000
-TAX	|506.0	|408.237154	|168.537116|	187.00000	|279.000000	|330.00000	|666.000000|	711.0000
-PTRATIO	|506.0|	18.455534|	2.164946|	12.60000|	17.400000|	19.05000|	20.200000|	22.0000
-B|	506.0|	356.674032|	91.294864|	0.32000|	375.377500|	391.44000|	396.225000|	396.9000
-LSTAT|	506.0|	12.653063	|7.141062|	1.73000|	6.950000|	11.36000|	16.955000|	37.9700
-MEDV|	506.0|	22.532806	|9.197104|	5.00000|	17.025000|	21.20000|	25.000000|	50.0000
+|count |	mean	|std	|min	|25%	|50%|	75%|	max  |
+|------|------------|-------|-------|-------|---|------|---------|
+|CRIM|	506.0	|3.613524	|8.601545	|0.00632	|0.082045	|0.25651	|3.677083	|88.9762|
+|ZN|	506.0	|11.363636|	23.322453|	0.00000	|0.000000	|0.00000	|12.500000	|100.0000|
+|INDUS|	506.0|	11.136779	|6.860353	|0.46000	|5.190000|	9.69000|	18.100000	|27.7400|
+|CHAS|	506.0	|0.069170	|0.253994|	0.00000	|0.000000|	0.00000|	0.000000|	1.0000|
+|NOX	|506.0|	0.554695|	0.115878	|0.38500	|0.449000	|0.53800	|0.624000	|0.8710|
+|RM|	506.0	|6.284634|	0.702617	|3.56100	|5.885500	|6.20850	|6.623500	|8.7800|
+|AGE	|506.0|	68.574901	|28.148861	|2.90000	|45.025000	|77.50000	| 94.075000	|100.0000|
+|DIS	|506.0|	3.795043	|2.105710	|1.12960|	2.100175|	3.20745|	5.188425	|12.1265|
+|RAD|	506.0	|9.549407	|8.707259	|1.00000|	4.000000|	5.00000|	24.000000	|24.0000|
+|TAX	|506.0	|408.237154	|168.537116|	187.00000	|279.000000	|330.00000	|666.000000|	711.0000|
+|PTRATIO	|506.0|	18.455534|	2.164946|	12.60000|	17.400000|	19.05000|	20.200000|	22.0000|
+|B|	506.0|	356.674032|	91.294864|	0.32000|	375.377500|	391.44000|	396.225000|	396.9000|
+|LSTAT|	506.0|	12.653063	|7.141062|	1.73000|	6.950000|	11.36000|	16.955000|	37.9700|
+|MEDV|	506.0|	22.532806	|9.197104|	5.00000|	17.025000|	21.20000|	25.000000|	50.0000|
 
 
 *Add correlation plot here*
@@ -91,6 +97,7 @@ MEDV|	506.0|	22.532806	|9.197104|	5.00000|	17.025000|	21.20000|	25.000000|	50.00
 
 
 ### Inferential statistics
+
 Use inferential statistics to analyse whether there is a significant difference in median house prices between houses that are along the Charles river and those that aren’t. 
 
 Visuallise the spread of data 
@@ -100,7 +107,9 @@ Using a One-way Anova
 
 Using a Z-test to compare the 2 means
 
+```
 ztest(Y2,x2=None,value=Mean1)
+```
 
 Result: 
 p value is 0.0014868133390002274 which is lower than 0.05 and therefore is statistically significant.
