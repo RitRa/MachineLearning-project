@@ -6,7 +6,8 @@ Machine Learning and statistics project 2019
 2. Use **inferential statistics** to analyse whether there is a significant difference in median house prices between houses that are along the Charles river and those that aren’t. You should explain and discuss your findings within the notebook.
 3. Use **keras to create a neural network** that can predict the median house price based on the other variables in the dataset.
 
-I recommend using nbviewer for quickly viewing this file:
+### Quick Glance
+I recommend using nbviewer to view this file:
 https://nbviewer.jupyter.org/github/RitRa/MachineLearning-project/blob/master/Project.ipynb
 
 
@@ -48,13 +49,7 @@ conda install -c anaconda statsmodels
 ```
 conda install -c conda-forge keras
 ```
-#import libraries
 
-
-import researchpy as rp
-
-# Using statsmodels.
-import statsmodels.api as sm
 ### import libraries
 
 ```
@@ -66,7 +61,7 @@ import researchpy as rp
 import statsmodels.api as sm
 ```
 
-A Quick look at the data
+### A Quick look at the data
 
 |    |CRIM      |ZN      |INDUS |CHAS  |NOX  | RM    |AGE   | DIS   | RAD   | TAX	|PTRATIO|	B     |LSTAT|MEDV |
 |----|----------|--------|------|------|-----|-------|------|-------|-------|-------|-------|---------|-----|-----|
@@ -78,7 +73,7 @@ A Quick look at the data
 
 
 ### Descriptive statistics
-#### describe() gives us a quick overview of the dataset
+describe() gives us a quick overview of the dataset
 
 ```
 summary = boston.describe()
@@ -107,7 +102,6 @@ summary.head(14)
 *Add correlation plot here*
 
 *add the linear regression plots here*
-
 
 
 ### Inferential statistics
