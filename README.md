@@ -1,48 +1,60 @@
-# MachineLearning-project
+# Machine Learning Project
 Machine Learning and statistics project 2019
 
 
-- Use descriptive statistics and plots to describe the Boston House Prices dataset.
-- Use inferential statistics to analyse whether there is a significant difference in median house prices between houses that are along the Charles river and those that aren’t. You should explain and discuss your findings within the notebook.
-- Use keras to create a neural network that can predict the median house price based on the other variables in the dataset.
+1. Use **descriptive statistics** and plots to describe the Boston House Prices dataset.
+2. Use **inferential statistics** to analyse whether there is a significant difference in median house prices between houses that are along the Charles river and those that aren’t. You should explain and discuss your findings within the notebook.
+3. Use **keras to create a neural network** that can predict the median house price based on the other variables in the dataset.
 
-I recommend nbviewer for viewing this file:
+I recommend using nbviewer for quickly viewing this file:
 https://nbviewer.jupyter.org/github/RitRa/MachineLearning-project/blob/master/Project.ipynb
 
 
-This Project concerns Boston House Prices dataset and the Python packages [scipy](https://www.scipy.org/), [keras](https://keras.io/), and [jupyter](https://jupyter.org/).
+This Project concerns Boston House Prices dataset and the Python packages [Scipy](https://www.scipy.org/), [Keras](https://keras.io/), and [Jupyter](https://jupyter.org/).
 
-I recommend installing jupyter using the anaconda distribution to run this
-link to documentation
-
-install tensor flow and keras
-link to documentation
+I recommend installing [jupyter](https://jupyter.org/) using the [anaconda](https://www.anaconda.com/) distribution to run this Project
 
 
 Dataset used
 
-# importing the boston housing dataset
+#### importing the boston housing dataset
 
 ```
 from sklearn.datasets import load_boston
 boston_df = load_boston()
 ```
 
+Libraries used in this Jupyter Notebook include:
 
-Libraries used in this notebook include:
+- **[Pandas](https://pandas.pydata.org/)**: Pandas is an open source, BSD-licensed library providing high-performance, easy-to-use data structures and data analysis tools for the Python programming language. 
 
-- **Pandas**: Pandas is an open source, BSD-licensed library providing high-performance, easy-to-use data structures and data analysis tools for the Python programming language. https://pandas.pydata.org/
+- **[NumPy](https://numpy.org/)**: NumPy is the fundamental package for scientific computing with Python. 
 
-- **NumPy**: NumPy is the fundamental package for scientific computing with Python. https://numpy.org/
+- **[Matplotlib](https://matplotlib.org/)**: Matplotlib is a Python 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments across platforms. 
 
-- **Seaborn**: Seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics. https://seaborn.pydata.org/
+- **[Seaborn](https://seaborn.pydata.org/)**: Seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics. 
 
-- **Matplotlib**: Matplotlib is a Python 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments across platforms. https://matplotlib.org/
+- **[researchpy](https://researchpy.readthedocs.io/en/latest/index.html)**: produces Pandas DataFrames that contain relevant statistical testing information that is commonly required for academic research. 
+```
+conda install -c researchpy researchpy
+```
 
-- **statsmodels**: s a Python module that provides classes and functions for the estimation of many different statistical models, as well as for conducting statistical tests, and statistical data exploration. https://www.statsmodels.org/stable/index.html
+- **[statsmodels](https://www.statsmodels.org/stable/index.html)**: is a Python module that provides classes and functions for the estimation of many different statistical models, as well as for conducting statistical tests, and statistical data exploration. 
+```
+conda install -c anaconda statsmodels
+```
+- **[Keras](https://keras.io/)** is a high-level neural networks API, written in Python and capable of running on top of [TensorFlow](https://www.tensorflow.org/), CNTK, or Theano.
 
-- Keras is a high-level neural networks API, written in Python and capable of running on top of TensorFlow, CNTK, or Theano.
+```
+conda install -c conda-forge keras
+```
+#import libraries
 
+
+import researchpy as rp
+
+# Using statsmodels.
+import statsmodels.api as sm
 ### import libraries
 
 ```
