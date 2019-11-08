@@ -101,6 +101,9 @@ summary.head(14)
 
 *Add correlation plot here*
 
+![Boston Dataset Correlation](plots/boston_dataset_correlation.png)
+
+
 *add the linear regression plots here*
 
 
@@ -110,6 +113,9 @@ Use inferential statistics to analyse whether there is a significant difference 
 
 Visualise the spread of data 
 *add box plots here of river vs non river*
+
+![Box plot](plots/boxplot.png)
+
 
 #### Using a One-way Anova 
 
