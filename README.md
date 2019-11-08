@@ -101,11 +101,12 @@ summary.head(14)
 
 *Add correlation plot here*
 
-![Boston Dataset Correlation](plots/boston_dataset_correlation.png)
+![Boston Dataset Correlation](plots/bostondatasetcorrelation.png)
 
 
 *add the linear regression plots here*
-
+![MEDV and LSTAT](plots/medvandlstatrelationship.png)
+![MEDV and RM](plots/medvvrmrelationship.png.png)
 
 ### Inferential statistics
 
@@ -115,6 +116,8 @@ Visualise the spread of data
 *add box plots here of river vs non river*
 
 ![Box plot](plots/boxplot.png)
+
+![Histogram](plots/hist.png)
 
 
 #### Using a One-way Anova 
