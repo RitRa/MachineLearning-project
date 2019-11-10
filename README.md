@@ -44,6 +44,10 @@ conda install -c researchpy researchpy
 ```
 conda install -c anaconda statsmodels
 ```
+- **[ipywidgets](https://ipywidgets.readthedocs.io/en/latest/)**
+```
+conda install -c conda-forge ipywidgets
+```
 - **[Keras](https://keras.io/)** is a high-level neural networks API, written in Python and capable of running on top of [TensorFlow](https://www.tensorflow.org/), CNTK, or Theano.
 
 ```
@@ -55,10 +59,18 @@ conda install -c conda-forge keras
 ```
 import numpy as np
 import pandas as pd
+# charts
 import seaborn as sns
-import matplotlib as plt
+import matplotlib.pyplot as plt
+# statistical analysis
 import researchpy as rp
 import statsmodels.api as sm
+#for interactive widgets for charts
+from ipywidgets import interact, interactive, fixed
+import ipywidgets as widgets
+# machine learning
+from keras.models import Sequential
+from keras.layers import Dense
 ```
 
 ### A Quick look at the data
@@ -99,14 +111,27 @@ summary.head(14)
 |MEDV|	506.0|	22.532806	|9.197104|	5.00000|	17.025000|	21.20000|	25.000000|	50.0000|
 
 
-*Add correlation plot here*
+Let's look at the correlation between the variables in the dataset
+
+- **Positive Correlation**: both variables change in the same direction (light color).
+
+- **Neutral Correlation**: No relationship in the change of the variables.
+
+- **Negative Correlation**: variables change in opposite directions (dark color).
 
 ![Boston Dataset Correlation](plots/bostondatasetcorrelation.png)
 
+From the correlation heatmap:
 
-*add the linear regression plots here*
-![MEDV and LSTAT](plots/medvandlstatrelationship.png)
+- We can see a positive correlation between MEDV and RM at 0.7. When the average number of rooms increase the price of the house also increases.
+- Negative correlation between MEDV and LSTAT (% lower status of the population): -0.74
+- Negative correlation between MEDV and CRIM (per capita crime rate by town): (-0.39)
+- Negative correlation between MEDV and Indus (proportion of non-retail business acres per town) (-0.48)
+
+Let's plot these for more detail:
 ![MEDV and RM](plots/medvvrmrelationship.png)
+![MEDV and LSTAT](plots/medvandlstatrelationship.png)
+
 
 ### Inferential statistics
 
