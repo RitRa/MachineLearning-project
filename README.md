@@ -1,12 +1,18 @@
 # Machine Learning Project
 Machine Learning and statistics project 2019
 
+#### Boston House Prices dataset 
+
+The boston dataset was first published in 1978 in a paper [Hedonic Housing Prices and the Demand for Clean Air ](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.926.5532&rep=rep1&type=pdf) by Harrison and Rubenfield.  506 entries represent aggregated data about 14 features for homes in Boston and capture the Crime rate (CRIM), number of Rooms(RM), age(AGE) of owners and more. This dataset is widely used in many machine learning papers that address regression problems.
+
+#### Aims of this notebook:
 
 1. Use **descriptive statistics** and plots to describe the Boston House Prices dataset.
 2. Use **inferential statistics** to analyse whether there is a significant difference in median house prices between houses that are along the Charles river and those that aren’t. You should explain and discuss your findings within the notebook.
 3. Use **keras to create a neural network** that can predict the median house price based on the other variables in the dataset.
 
-### Quick Glance
+----------
+#### Quick Glance
 I recommend using nbviewer to view this file:
 https://nbviewer.jupyter.org/github/RitRa/MachineLearning-project/blob/master/Project.ipynb
 
@@ -62,6 +68,8 @@ import pandas as pd
 # charts
 import seaborn as sns
 import matplotlib.pyplot as plt
+# for creating folder for plots
+import os
 # statistical analysis
 import researchpy as rp
 import statsmodels.api as sm
