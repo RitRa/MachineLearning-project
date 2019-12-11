@@ -3,6 +3,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+*Machine Learning and Statistics Project 2019-Copy1.ipynb
+
 # C extensions
 *.so
 
