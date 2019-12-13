@@ -137,6 +137,8 @@ From the correlation heatmap:
 Let's plot these for more detail:
 ![MEDV and RM](plots/medvvrmrelationship.png)
 ![MEDV and LSTAT](plots/medvandlstatrelationship.png)
+![MEDV and PRatio](plots/linearregression/linearreg_PTRATIO.png)
+![MEDV and Indus](plots/linearregression/linearreg_INDUS.png)
 
 
 ### 2. Inferential statistics
