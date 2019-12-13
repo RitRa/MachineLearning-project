@@ -168,16 +168,17 @@ combined|490.0|21635.918367|7865.301063|355.318083|20937.779775|22334.056960
 
 This gives us a good overview of the the two samples. We can see that there is not a large different in the Means of each dataset and also the Standard deviations are similar.
 
-Independent t-test	results
-0	Difference (MEDV - MEDV) =	-2490.8071
-1	Degrees of freedom =	488.0000
-2	t =	-1.6571
-3	Two side test p value =	0.0981
-4	Difference > 0 p value =	0.0491
-5	Difference < 0 p value =	0.9509
-6	Cohen's d =	-0.3172
-7	Hedge's g =	-0.3168
-8	Glass's delta =	-0.3153
-9	r =	0.0748
+|Independent |t-test	 |results
+|---------|-------|-------|
+0|Difference (MEDV - MEDV) =|	-2490.8071|
+1	|Degrees of freedom =|	488.0000|
+2	|t =	|-1.6571|
+3	|Two side test p value =|	0.0981|
+4	|Difference > 0 p value =|	0.0491|
+5	|Difference < 0 p value =|	0.9509|
+6	|Cohen's d =|	-0.3172|
+7	|Hedge's g =|	-0.3168|
+8	|Glass's delta =|	-0.3153|
+9	|r =|	0.0748|
 
 Results: According to the pvalue which is greater than 0.05, there is no stastistical significance. Prior to removing the duplicates, the results were showing a pvalue less than 0.05.
