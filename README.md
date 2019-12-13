@@ -12,7 +12,7 @@ The boston dataset was first published in 1978 in a paper [Hedonic Housing Price
 ----------
 #### Quick Glance
 I recommend using nbviewer to view this file:
-https://nbviewer.jupyter.org/github/RitRa/MachineLearning-project/blob/master/Project.ipynb
+https://nbviewer.jupyter.org/github/RitRa/MachineLearning-project/blob/master/Machine%20Learning%20and%20Statistics%20Project%202019.ipynb
 
 
 This Project concerns Boston House Prices dataset and the Python packages [Scipy](https://www.scipy.org/), [Keras](https://keras.io/), and [Jupyter](https://jupyter.org/).
