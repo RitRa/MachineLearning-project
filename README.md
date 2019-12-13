@@ -1,7 +1,5 @@
-# Machine Learning Project
+### Boston House Prices dataset, Neural Network
 Machine Learning and statistics project 2019
-
-#### Boston House Prices dataset 
 
 The boston dataset was first published in 1978 in a paper [Hedonic Housing Prices and the Demand for Clean Air ](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.926.5532&rep=rep1&type=pdf) by Harrison and Rubenfield.  506 entries represent aggregated data about 14 features for homes in Boston and capture the Crime rate (CRIM), number of Rooms(RM), age(AGE) of owners and more. This dataset is widely used in many machine learning papers that address regression problems.
 
@@ -131,10 +129,10 @@ Let's look at the correlation between the variables in the dataset
 
 From the correlation heatmap:
 
-- We can see a positive correlation between MEDV and RM at 0.7. When the average number of rooms increase the price of the house also increases.
-- Negative correlation between MEDV and LSTAT (% lower status of the population): -0.74
-- Negative correlation between MEDV and CRIM (per capita crime rate by town): (-0.39)
-- Negative correlation between MEDV and Indus (proportion of non-retail business acres per town) (-0.48)
+- We can see a positive correlation between MEDV and RM at 0.69. When the average number of rooms increase the price of the house also increases.
+- Negative correlation between MEDV and LSTAT (% lower status of the population): -0.76
+- Negative correlation between MEDV and PTRatio (pupil-teacher ratio by town): (-0.52)
+- Negative correlation between MEDV and INDUS (proportion of non-retail business acres per town) (-0.6)
 
 Let's plot these for more detail:
 ![MEDV and RM](plots/medvvrmrelationship.png)
@@ -153,24 +151,33 @@ Visualise the spread of data
 ![Histogram](plots/hist.png)
 
 
-#### Using a One-way Anova 
+#### T-Test
+
+Using a T-Test we can find out if there is a statistical significance between th two samples. I will use the researchpy library for this section.
 
 ```
-#oneway anova
-import scipy.stats as stats
-stats.f_oneway(other_df['MEDV'], riverhouse_df['MEDV'])
+descriptives, results = rp.ttest(other_df['MEDV'], riverhouse_df['MEDV'])
+
+descriptives
 ```
+|Variable	|N	      |Mean	  |SD	  |SE	  |95% Conf.	|Interval |
+|-----------|---------|-------|-------|-------|-------------|---------|
+MEDV	 |461.0	  |21488.503254|7898.848164|367.886036|	20765.557728|22211.448780
+MEDV	|29.0|23979.310345	|7024.161328	|1304.354013	|21307.462269|26651.158421
+combined|490.0|21635.918367|7865.301063|355.318083|20937.779775|22334.056960
 
-#### Z-test
+This gives us a good overview of the the two samples. We can see that there is not a large different in the Means of each dataset and also the Standard deviations are similar.
 
-Using a Z-test to compare the 2 means
+Independent t-test	results
+0	Difference (MEDV - MEDV) =	-2490.8071
+1	Degrees of freedom =	488.0000
+2	t =	-1.6571
+3	Two side test p value =	0.0981
+4	Difference > 0 p value =	0.0491
+5	Difference < 0 p value =	0.9509
+6	Cohen's d =	-0.3172
+7	Hedge's g =	-0.3168
+8	Glass's delta =	-0.3153
+9	r =	0.0748
 
-```
-# import the package for performing Z Test
-from statsmodels.stats.weightstats import ztest
-
-ztest(Y2,x2=None,value=Mean1)
-```
-
-Result: 
-p value is 0.0014868133390002274 which is lower than 0.05 and therefore is statistically significant.
+Results: According to the pvalue which is greater than 0.05, there is no stastistical significance. Prior to removing the duplicates, the results were showing a pvalue less than 0.05.
