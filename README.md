@@ -90,7 +90,7 @@ from keras.layers import Dense
 |4	 |0.06905   |	0.0	 |2.18  |	0.0|0.458|	7.147|	54.2|6.0622	|3.0    |222.0  |	18.7|	396.90|	5.33| 36.2|
 
 
-### Descriptive statistics
+### 1. Descriptive statistics
 describe() gives us a quick overview of the dataset
 
 ```
@@ -139,7 +139,7 @@ Let's plot these for more detail:
 ![MEDV and LSTAT](plots/medvandlstatrelationship.png)
 
 
-### Inferential statistics
+### 2. Inferential statistics
 
 Use inferential statistics to analyse whether there is a significant difference in median house prices between houses that are along the Charles river and those that aren’t. 
 
@@ -182,3 +182,100 @@ This gives us a good overview of the the two samples. We can see that there is n
 9	|r =|	0.0748|
 
 Results: According to the pvalue which is greater than 0.05, there is no stastistical significance. Prior to removing the duplicates, the results were showing a pvalue less than 0.05.
+
+### 3. Predict
+
+We will use keras to create a Neural network that can predict the median house price based on the other variables in the dataset. Neural networks are a set of algorithms, modeled loosely after the human brain, that are designed to recognize patterns.
+
+```
+import numpy as np
+import pandas as pd
+from keras.models import Sequential
+from keras.layers import Dense
+```
+
+#### Selecting features
+We will only take the variables that had a strong correlations with 'MEDV'. 'MEDV', will be the variable we seek to predict.
+
+```
+#features = boston.iloc[:,0:13]
+features = boston[['RM', 'LSTAT', 'PTRATIO', 'INDUS']]
+
+# target is the price, boston[['MEDV']]
+prices = boston.iloc[:,13]
+```
+
+#### Normalising the data
+
+A best practices are to normalise the data before added it to the Neural network to see better results.
+
+```
+from sklearn.preprocessing import MinMaxScaler
+
+scaler = MinMaxScaler()
+
+features= scaler.fit_transform(features)
+prices= prices.values.reshape(-1,1)
+
+prices = scaler.fit_transform(prices)
+```
+
+
+#### Create train and test split
+Now we need to split the data into two subsets. Train will be used inside the neural network.
+
+```
+from sklearn.model_selection import train_test_split
+
+# Shuffle and split the data into training and testing subsets
+X_train, X_test, y_train, y_test = train_test_split(features, prices, test_size=0.20, random_state=50)
+
+```
+
+#### Create the model
+With our training and test data set-up, we are now ready to build our model.
+
+We create the model using 1 input layer, 2 hidden layers and 1 output layer.
+
+As this a regression problem, the loss function we use is mean squared error and the metrics against which we evaluate the performance of the model is mean absolute error and accuracy. Also the output layer should be linear also.
+
+```
+from keras.callbacks import ModelCheckpoint
+model = kr.models.Sequential()
+
+n_cols = X_train.shape[1]
+# The Input Layer, activation layer
+model.add(kr.layers.Dense(128, kernel_initializer='normal',input_shape=(n_cols,), activation='relu'))
+# The Hidden Layers :
+#m.add(kr.layers.Dense(256, kernel_initializer='normal',activation='relu'))
+model.add(kr.layers.Dense(256, kernel_initializer='normal',activation='relu'))
+model.add(kr.layers.Dense(128, kernel_initializer='normal',activation='relu'))
+
+# The Output Layer :
+model.add(kr.layers.Dense(1, kernel_initializer='normal',activation='linear'))
+
+print(model.summary())
+```
+
+
+#### Compile the Neural Network
+
+model.compile(loss='mse', optimizer='adam', metrics=['mean_absolute_error', 'accuracy'])
+
+#### Train the Model
+
+```
+from keras.callbacks import History 
+history = History()
+#  y_train = prices, use validation data 10%
+hist = model.fit(X_train, y_train, validation_split=0.20, epochs=100, batch_size=6, callbacks=[history])
+```
+#### Plots
+
+![Mean Absolute Error](plots/neuralnetwork/mean_absolute_error.png)
+
+![Accuracy](plots/neuralnetwork/accuracy.png)
+
+![Loss](plots/neuralnetwork/loss.png)
+
+![Loss](plots/neuralnetwork/prediction.png)
